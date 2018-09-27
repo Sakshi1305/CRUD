@@ -1,0 +1,31 @@
+<div class='form_heading dashboard_form'>
+  <h1>Manage Locations</h1>
+  <div class='frm_setting'>
+    <div class="user_table">
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Location Name</th>
+            <th>State</th>
+            <th>City</th>
+            <th>ZipCode</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @locations.each do |location| %>
+            <tr>
+              <td><%= location.loc_name %></td>
+              <td><%= location.state %></td>
+              <td><%= location.city %></td>
+              <td><%= location.zipcode %></td>
+              <td><%= link_to 'Edit', edit_location_path(location) %></td>
+              <td><%= link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

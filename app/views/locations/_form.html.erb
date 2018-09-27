@@ -1,0 +1,40 @@
+<%= simple_form_for(@location, html: { class: '' }) do |f| %>
+  <% if @location.errors.any? %>
+    <div id='error_explanation'>
+      <ul>
+        <% @location.errors.each do |attri, msg| %>
+          <li>
+            <%= attri %> <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs location_frm">
+
+    <%= f.label :loc_name, '*Location Name' %>
+    <%= f.input :loc_name, label: false %>
+
+    <%= f.label :city, '*City' %>
+    <%= f.input :city, label: false %>
+
+    <%= f.label :state, 'State' %>
+    <%= f.input :state, label: false %>
+
+    <%= f.label :zipcode %>
+    <%= f.input :zipcode, label: false %>
+
+      <%#= f.label :logo, 'Upload Logo'%>
+      <%#= f.file_field :logo, label: false %>
+    <%# end %>
+
+    <div class="form-actions">
+      <% if @location.persisted? %>
+        <button name="button" type="submit" class="send_invite_btn">Update Location</button>
+      <% else %>
+        <button name="button" type="submit" class="send_invite_btn">Create Location</button>
+      <% end %>
+    </div>
+  </div>
+<% end %>
